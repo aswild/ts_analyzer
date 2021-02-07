@@ -12,8 +12,8 @@
 #include <QSplitter>
 #include <QFile>
 extern "C" {
-#include "ffmpeg/include/libavformat/avformat.h"
-#include "ffmpeg/include/libavutil/intreadwrite.h"
+#include <libavformat/avformat.h>
+#include <libavutil/intreadwrite.h>
 }
 #include "ts_parser.h"
 #include "parse_thread.h"

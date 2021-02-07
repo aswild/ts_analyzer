@@ -4,9 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui avwidgets
-
-greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+QT       += core widgets gui avwidgets
 
 TARGET = ts_analyzer
 TEMPLATE = app
@@ -43,14 +41,9 @@ HEADERS  += mainwindow.h \
 FORMS    += mainwindow.ui \
     playdialog.ui
 
-INCLUDEPATH += $$_PRO_FILE_PWD_/ffmpeg/include $$_PRO_FILE_PWD_/SDL2/include
+QMAKE_CFLAGS += -Wno-deprecated-declarations
+QMAKE_CXXFLAGS += -Wno-deprecated-declarations
 
-LIBS += -L$$_PRO_FILE_PWD_/ffmpeg/lib libgcc.a libmingwex.a libiconv.a \
-    avformat.lib avcodec.lib avutil.lib swscale.lib swresample.lib avfilter.lib avdevice.lib postproc.lib \
-    -L$$_PRO_FILE_PWD_/SDL2/lib libSDL2.dll.a libSDL2main.a
+LIBS += -lavformat -lavcodec -lavutil -lQtAVWidgets -lQtAV
 
-QMAKE_CXXFLAGS += /utf-8
-QMAKE_CFLAGS += /utf-8
-
-RESOURCES += \
-    ts_analyzer.qrc
+RESOURCES += ts_analyzer.qrc

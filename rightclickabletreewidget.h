@@ -16,7 +16,7 @@ protected:
     virtual void mouseReleaseEvent(QMouseEvent* event);
 
 signals:
-    void item_right_clicked(QTreeWidgetItem* item, QPoint& pos);
+    void item_right_clicked(QTreeWidgetItem* item, QPoint pos);
 };
 
 #endif // RIGHTCLICKABLETREEWIDGET_H

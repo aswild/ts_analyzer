@@ -6,8 +6,8 @@
 #include <QList>
 #include "ts_parser.h"
 extern "C" {
-#include "ffmpeg/include/libavformat/avformat.h"
-#include "ffmpeg/include/libavutil/intreadwrite.h"
+#include <libavformat/avformat.h>
+#include <libavutil/intreadwrite.h>
 }
 
 class MainWindow;

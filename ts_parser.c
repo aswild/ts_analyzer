@@ -1,8 +1,8 @@
 #include "ts_parser.h"
-#include "ffmpeg/include/libavutil/error.h"
-#include "ffmpeg/include/libavutil/intreadwrite.h"
-#include "ffmpeg/include/libavutil/avutil.h"
-#include "ffmpeg/include/libavcodec/avcodec.h"
+#include <libavutil/error.h>
+#include <libavutil/intreadwrite.h>
+#include <libavutil/avutil.h>
+#include <libavcodec/avcodec.h>
 
 #define TS_PACKET_SIZE 188
 

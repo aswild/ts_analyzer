@@ -17,7 +17,7 @@ protected:
     virtual void mouseReleaseEvent(QMouseEvent* event);
 
 signals:
-    void cell_right_clicked(int row, int col, QPoint &pos);
+    void cell_right_clicked(int row, int col, QPoint pos);
 };
 
 #endif // RIGHTCLICKABLETABLEWIDGET_H

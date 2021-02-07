@@ -6,8 +6,8 @@ extern "C" {
 #endif
 
 #include <stdint.h>
-#include "ffmpeg/include/libavformat/avformat.h"
-#include "ffmpeg/include/libavutil/intreadwrite.h"
+#include <libavformat/avformat.h>
+#include <libavutil/intreadwrite.h>
 #include "h264_stream.h"
 
 typedef struct pes_packet_info {

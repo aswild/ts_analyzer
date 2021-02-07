@@ -2,10 +2,12 @@
 #define PLAYDIALOG_H
 
 #include <QDialog>
-#include "ts_parser.h"
+#include <QPainterPath>
 #include <QList>
 #include <QtAV>
 #include <QtAVWidgets>
+
+#include "ts_parser.h"
 #include "tsstreamdevice.h"
 
 namespace Ui {

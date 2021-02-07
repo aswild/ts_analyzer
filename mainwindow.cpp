@@ -3,6 +3,7 @@
 #include <QFileDialog>
 #include <QDebug>
 #include <QFile>
+#include <QPainterPath>
 #include "playdialog.h"
 
 enum {
