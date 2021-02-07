@@ -1,3 +1,13 @@
+moc_*.cpp
+moc_*.h
+
+.qmake.stash
+Makefile
+qrc_ts_analyzer.cpp
+ts_analyzer
+ui_mainwindow.h
+ui_playdialog.h
+
 # Prerequisites
 *.d
 
