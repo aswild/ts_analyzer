@@ -2,6 +2,7 @@ moc_*.cpp
 moc_*.h
 
 .qmake.stash
+build/
 Makefile
 qrc_ts_analyzer.cpp
 ts_analyzer
