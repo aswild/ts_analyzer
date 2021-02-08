@@ -9,6 +9,20 @@ A MPEG TS Stream analyzer, base on Qt5, FFmpeg and QtAV.
 * Build tool: Qt 5.x
 * Tested on Windows 7 SP1 x64, Qt 5.7.0, VS2015. Theoritically, ts analyzer support all kinds of platform, not tested yet.
 
+**In this fork:**
+* Fixed build errors (tested on Arch Linux)
+* Removed vendored ffmpeg and SDL2 headers
+* Cleaned up qmake files so it works on Linux
+* Added cmake build system to replace qmake
+
+Example build commands:
+
+```
+cmake -S . -B build
+cd build
+make
+```
+
 ## Version histories
 
 ### V0.1, 2017-09-06
