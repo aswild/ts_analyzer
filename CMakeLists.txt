@@ -1,12 +1,24 @@
 # cmake build files for ts_analyzer
 # Author: Allen Wild
-# SPDX-License-Identifier: LGPL-3.0
 
 cmake_minimum_required(VERSION 3.3)
 project(ts_analyzer LANGUAGES C CXX)
 
+# default to release with debug info, rather than no build type
 if (NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE "RelWithDebInfo" CACHE STRING "Set the build type" FORCE)
+endif()
+
+if ((CMAKE_CXX_COMPILER_ID STREQUAL "GNU") OR (CMAKE_CXX_COMPILER_ID STREQUAL "Clang"))
+    set(GCC_OR_CLANG TRUE)
+endif()
+
+# Ninja buffers output, so force-enable colors for GCC and Clang. Not necessary, but fun.
+# This is the ONLY time we touch the global CMAKE_C_FLAGS and CMAKE_CXX_FLAGS variables.
+# All other flags are target-specific.
+if (CMAKE_GENERATOR STREQUAL "Ninja" AND GCC_OR_CLANG)
+    list(APPEND CMAKE_C_FLAGS -fdiagnostics-color=always)
+    list(APPEND CMAKE_CXX_FLAGS -fdiagnostics-color=always)
 endif()
 
 # includes
@@ -68,7 +80,7 @@ set(ts_analyzer_RESOURCES
 )
 
 # project compile flags
-if ((CMAKE_CXX_COMPILER_ID STREQUAL "GNU") OR (CMAKE_CXX_COMPILER_ID STREQUAL "Clang"))
+if (GCC_OR_CLANG)
     set(WARN_FLAGS -Wall -Wextra -Wno-unused-parameter)
     # hide deprecated warnings in libav. TODO: they should be fixed instead
     list(APPEND WARN_FLAGS -Wno-deprecated-declarations)
@@ -83,6 +95,7 @@ target_link_libraries(ts_analyzer
     Qt5::Core
     Qt5::Gui
     Qt5::Widgets
+    QtAV::QtAV
     QtAV::Widgets
     PkgConfig::libavcodec
     PkgConfig::libavformat
